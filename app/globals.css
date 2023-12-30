@@ -96,19 +96,19 @@ div:hover.tooltip-delete span {
 }
 
 .Biologia {
-  background: #cc4090;
+  background: #be185d;
 }
 
 .Sociologia {
-  background: #9b19c2;
+  background: #b45309;
 }
 
 .Artes {
-  background: #05a2c2;
+  background: #047857;
 }
 
 .Geografia {
-  background: #c26719;
+  background: #1d4ed8;
 }
 @media (max-width: 1200px) {
   .tooltip p {
@@ -116,7 +116,7 @@ div:hover.tooltip-delete span {
   }
 
   .modal button {
-    width: 150px;
+    width: 120px;
   }
 
   .modal .button {

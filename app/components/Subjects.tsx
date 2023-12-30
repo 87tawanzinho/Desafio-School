@@ -28,6 +28,10 @@ export default function Subjects(semester: ModalI) {
 
   const axiosCreate = async () => {
     setWarnAxios("");
+
+    if (data.subject == "") {
+      return setWarnAxios("Escolha uma disciplina");
+    }
     if (data.grade! < 0 || data.grade! > 10 || data.grade == null) {
       return setWarnAxios(
         "O que está fazendo? as notas nessa escola só vão de 0 a 10."
@@ -50,7 +54,7 @@ export default function Subjects(semester: ModalI) {
   return (
     <div className="mt-8 relative ">
       <p>Disciplina</p>
-      <div className="flex mt-4 gap-8 flex-wrap justify-center lg:justify-normal lg:flex-nowrap">
+      <div className="flex mt-4 gap-4 flex-wrap justify-center lg:justify-normal lg:flex-nowrap">
         <button
           className="bg-pink-700 rounded-2xl   p-2 px-6 hover:opacity-70 transition-all"
           onClick={() => handleSubject(arraySubjects[0])}
@@ -83,10 +87,12 @@ export default function Subjects(semester: ModalI) {
       <div className="mt-10 flex flex-col gap-2">
         <p className="text-gray-300 text-sm">Nota</p>
         <input
-          type="text"
+          type="number"
           placeholder="7.4"
           className="w-24 rounded-lg p-2 opacity-80 border bg-input  border-zinc-800 "
           name="grade"
+          step="any"
+          pattern="^\d*(\.\d{0,2})?$"
           onChange={handleGrade}
         ></input>
       </div>

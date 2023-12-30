@@ -11,6 +11,7 @@ import { axiosGet } from "../axios/takeGrades";
 import { colorGrade } from "../strings/Cors";
 import graphics from "@/public/images/sun-haze-svgrepo-com.svg";
 import GraphicsSVG from "./GraphicsSvg";
+import arraySemester from "../strings/ArraySemester";
 export default function TakeGrades() {
   const [grades, setGrades] = useState<GradesI[]>([]);
 
@@ -76,8 +77,10 @@ export default function TakeGrades() {
   return (
     <>
       <div className="flex flex-col gap-40">
-        {gradesFiltered("PRIMEIRO")}
-        {gradesFiltered("SEGUNDO")}
+        {gradesFiltered(arraySemester[0])}
+        {gradesFiltered(arraySemester[1])}
+        {gradesFiltered(arraySemester[2])}
+        {gradesFiltered(arraySemester[3])}
       </div>
     </>
   );
