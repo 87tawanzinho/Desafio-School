@@ -76,6 +76,9 @@ div:hover.tooltip-delete span {
   z-index: 999;
 }
 
+.bg-modal {
+  background: #0f0f0f;
+}
 @media (max-width: 900px) {
   .tooltip p {
     display: none;
