@@ -28,17 +28,21 @@ export default function TakeGrades() {
 
           <CreateGrade semester={semester} />
         </div>
-        <div className="flex  flex-wrap gap-4 lg:gap-20  justify-center ">
+        <div className="flex  flex-wrap gap-4 lg:gap-10  ">
           {filteredGrades.map((note) => (
             <div
               key={note._id}
-              className={`mt-10 flex gap-4  w-36 lg:w-40 h-40 ${note.subject} rounded-2xl relative flex-wrap`}
+              className={`mt-10 flex gap-4  w-36 lg:w-40 h-40 ${note.subject} rounded-2xl relative flex-wrap animatingCard `}
             >
               <div
-                className="absolute end-0  top-1 tooltip-delete hover:opacity-75 transition-all"
+                className="absolute end-0  top-1 tooltip-delete hover:opacity-75 transition-all bg-red-700 rounded-3xl p-2 "
                 onClick={() => deleteGrade(note._id)}
               >
-                <Image src={trash} alt="lixo" className="h-7 w-7 rounded " />
+                <Image
+                  src={trash}
+                  alt="lixo"
+                  className="h-7 w-7 rounded mix-blend-multiply  "
+                />
                 <span>Deletar</span>
               </div>
               <div className="flex flex-col ">
@@ -46,12 +50,12 @@ export default function TakeGrades() {
                   <p className="text-base text-gray-100">{note.subject}</p>
                   <p className="text-xs text-gray-200 ">
                     {" "}
-                    {format(new Date(note.createdAt), "dd/MM/yyyy ")}
+                    {format(new Date(note.createdAt!), "dd/MM/yyyy ")}
                   </p>
                 </div>
                 <div
-                  className={`absolute bottom-4 p-2 bg-opacity-80 flex justify-start items-center bg-black w-full ${colorGrade(
-                    note.grade
+                  className={`absolute bottom-4 p-2 bg-opacity-80 bg-zinc-900 flex justify-start items-center  w-full ${colorGrade(
+                    note.grade!
                   )} `}
                 >
                   <GraphicsSVG />

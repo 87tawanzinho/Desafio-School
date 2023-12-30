@@ -45,7 +45,7 @@ export default function Subjects(semester: ModalI) {
       });
       console.log(res);
       window.location.reload();
-    } catch (error) {
+    } catch (error: any) {
       setWarnAxios(error.response.data.error);
       console.log(error);
     }

@@ -110,6 +110,15 @@ div:hover.tooltip-delete span {
 .Geografia {
   background: #1d4ed8;
 }
+
+.animatingCard {
+  transition: ease-in-out;
+}
+.animatingCard:hover {
+  transition: ease-in-out;
+  cursor: pointer;
+  animation: animation-card 0.4s forwards;
+}
 @media (max-width: 1200px) {
   .tooltip p {
     display: none;
@@ -121,5 +130,15 @@ div:hover.tooltip-delete span {
 
   .modal .button {
     width: 120px;
+  }
+}
+
+@keyframes animation-card {
+  0% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-20px);
   }
 }
