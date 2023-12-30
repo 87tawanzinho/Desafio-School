@@ -1,27 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #ffffff;
+  background: #0f0f0f;
+}
+.buttonGrade {
+  color: #0f0f0f;
+  --bg: #e9ff1a;
+  --hover-bg: #ff90e8;
+  --hover-text: #000;
+
+  cursor: pointer;
+  border: 1px solid var(--bg);
+  border-radius: 8px;
+  padding: 0.2em 2em;
+
+  background: var(--bg);
+  transition: 0.2s;
+}
+
+.buttonGrade:hover {
+  color: var(--hover-text);
+  transform: translate(-0.25rem, -0.25rem);
+  background: var(--hover-bg);
+  box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+.buttonGrade:active {
+  transform: translate(0);
+  box-shadow: none;
+}
+
+.tooltip {
+  cursor: pointer;
+
+  position: relative;
+
+  width: auto;
+}
+
+button.tooltip span {
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+}
+button.tooltip span:after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -8px;
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+button:hover.tooltip span {
+  visibility: visible;
+  opacity: 0.9;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+}
+
+@media (max-width: 900px) {
+  .tooltip p {
+    display: none;
+  }
 }
