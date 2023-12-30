@@ -6,7 +6,7 @@ export default function CreateGrade({ semester }: ModalI) {
   return (
     <div>
       <button
-        className="buttonGrade flex justify-center items-center gap-4 text-xl tooltip "
+        className="buttonGrade button flex justify-center items-center gap-4 text-xl tooltip "
         onClick={() => setOpen(true)}
       >
         <p>Lançar Nota </p>

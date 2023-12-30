@@ -45,7 +45,7 @@ body {
   cursor: pointer;
 }
 
-button.tooltip span,
+.button.tooltip span,
 div.tooltip-delete span {
   position: absolute;
   text-align: center;
@@ -54,7 +54,7 @@ div.tooltip-delete span {
   color: #fff;
   padding: 5px 10px;
 }
-button.tooltip span:after,
+.button.tooltip span:after,
 div.tooltip-delete span:after {
   content: "";
   position: absolute;
@@ -67,7 +67,7 @@ div.tooltip-delete span:after {
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
-button:hover.tooltip span,
+.button:hover.tooltip span,
 div:hover.tooltip-delete span {
   visibility: visible;
   opacity: 0.9;
@@ -76,11 +76,27 @@ div:hover.tooltip-delete span {
   z-index: 999;
 }
 
-.bg-modal {
+.modal {
   background: #0f0f0f;
+  width: 678px;
 }
+
+.modal button {
+  width: 300px;
+  padding: 8px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 @media (max-width: 900px) {
   .tooltip p {
     display: none;
+  }
+
+  .modal {
+    width: 90%;
+  }
+  .modal button {
+    width: 150px;
   }
 }
