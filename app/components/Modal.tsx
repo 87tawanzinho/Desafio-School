@@ -1,7 +1,7 @@
 import conversionSemester from "../strings/Semester";
 import Subjects from "./Subjects";
 
-export default function Modal({ setOpen, semester }: ModalI) {
+export default function Modal({ setOpen, semester, axiosGet }: ModalI) {
   return (
     <div className="absolute top-0 left-0 flex justify-center items-center w-screen h-screen z-50 bg-opacity-75 p-4 bg-zinc-900">
       <div className="modal w-auto   h-auto p-8 lg:p-14 rounded ">
@@ -14,7 +14,7 @@ export default function Modal({ setOpen, semester }: ModalI) {
             X
           </p>
         </div>
-        <Subjects semester={semester} />
+        <Subjects semester={semester} axiosGet={axiosGet} />
       </div>
     </div>
   );

@@ -95,6 +95,21 @@ div:hover.tooltip-delete span {
   background: #0f0f0f;
 }
 
+.Biologia {
+  background: #cc4090;
+}
+
+.Sociologia {
+  background: #9b19c2;
+}
+
+.Artes {
+  background: #05a2c2;
+}
+
+.Geografia {
+  background: #c26719;
+}
 @media (max-width: 1200px) {
   .tooltip p {
     display: none;

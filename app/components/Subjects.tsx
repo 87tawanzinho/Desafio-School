@@ -40,7 +40,9 @@ export default function Subjects(semester: ModalI) {
         grade: data.grade,
       });
       console.log(res);
+      window.location.reload();
     } catch (error) {
+      setWarnAxios(error.response.data.error);
       console.log(error);
     }
   };
