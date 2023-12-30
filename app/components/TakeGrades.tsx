@@ -12,11 +12,21 @@ import { colorGrade } from "../strings/Cors";
 import graphics from "@/public/images/sun-haze-svgrepo-com.svg";
 import GraphicsSVG from "./GraphicsSvg";
 import arraySemester from "../strings/ArraySemester";
+import Loading from "../Loading";
 export default function TakeGrades() {
   const [grades, setGrades] = useState<GradesI[]>([]);
-
+  const [loading, isLoading] = useState(false);
   useEffect(() => {
-    axiosGet(setGrades);
+    const fetchLoading = async () => {
+      try {
+        axiosGet(setGrades);
+        isLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      } finally {
+        isLoading(false);
+      }
+    };
+    fetchLoading();
   }, []);
 
   const gradesFiltered = (semester: string) => {
@@ -80,12 +90,16 @@ export default function TakeGrades() {
   };
   return (
     <>
-      <div className="flex flex-col gap-40">
-        {gradesFiltered(arraySemester[0])}
-        {gradesFiltered(arraySemester[1])}
-        {gradesFiltered(arraySemester[2])}
-        {gradesFiltered(arraySemester[3])}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="flex flex-col gap-40">
+          {gradesFiltered(arraySemester[0])}
+          {gradesFiltered(arraySemester[1])}
+          {gradesFiltered(arraySemester[2])}
+          {gradesFiltered(arraySemester[3])}
+        </div>
+      )}
     </>
   );
 }
