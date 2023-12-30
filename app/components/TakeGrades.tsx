@@ -18,17 +18,16 @@ export default function TakeGrades() {
   const [loading, isLoading] = useState(false);
   useEffect(() => {
     const fetchLoading = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 500));
       try {
-        axiosGet(setGrades);
         isLoading(true);
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await axiosGet(setGrades);
       } finally {
         isLoading(false);
       }
     };
     fetchLoading();
   }, []);
-
   const gradesFiltered = (semester: string) => {
     const filteredGrades = grades.filter((note) => note.semester === semester);
     return (
@@ -38,6 +37,7 @@ export default function TakeGrades() {
 
           <CreateGrade semester={semester} />
         </div>
+
         <div className="flex  flex-wrap gap-4 lg:gap-10  ">
           {filteredGrades.map((note) => (
             <div
@@ -90,7 +90,7 @@ export default function TakeGrades() {
   };
   return (
     <>
-      {loading ? (
+      {grades.length == 0 ? (
         <Loading />
       ) : (
         <div className="flex flex-col gap-40">
