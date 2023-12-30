@@ -1,6 +1,7 @@
 interface GradesI {
-  semester: string;
+  semester: string | undefined;
   subject: string;
-  grade: number;
+  grade: number | null;
+  createdAt: string;
   _id?: string;
 }
