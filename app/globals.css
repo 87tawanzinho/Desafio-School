@@ -40,7 +40,13 @@ body {
   width: auto;
 }
 
-button.tooltip span {
+.tooltip-delete {
+  position: absolute;
+  cursor: pointer;
+}
+
+button.tooltip span,
+div.tooltip-delete span {
   position: absolute;
   text-align: center;
   visibility: hidden;
@@ -48,7 +54,8 @@ button.tooltip span {
   color: #fff;
   padding: 5px 10px;
 }
-button.tooltip span:after {
+button.tooltip span:after,
+div.tooltip-delete span:after {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -60,7 +67,8 @@ button.tooltip span:after {
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
 }
-button:hover.tooltip span {
+button:hover.tooltip span,
+div:hover.tooltip-delete span {
   visibility: visible;
   opacity: 0.9;
   top: 30px;

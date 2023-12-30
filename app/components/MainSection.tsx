@@ -1,3 +1,5 @@
+import trash from "@/public/images/trash.gif";
+import Image from "next/image";
 export default function MainSection() {
   return (
     <div className="flex justify-center">
@@ -11,6 +13,10 @@ export default function MainSection() {
           </button>
         </div>
         <div className="mt-10 flex gap-4 w-48 h-40  bg-violet-900 rounded-2xl relative ">
+          <div className="absolute end-0  top-1 tooltip-delete hover:opacity-75 transition-all">
+            <Image src={trash} alt="lixo" className="h-7 w-7 rounded " />
+            <span>Deletar</span>
+          </div>
           <div className="flex flex-col ">
             <div className="p-2">
               <p className="text-2xl">Biologia</p>
