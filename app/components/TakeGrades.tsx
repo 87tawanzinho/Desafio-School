@@ -16,11 +16,15 @@ import Loading from "../Loading";
 export default function TakeGrades() {
   const [grades, setGrades] = useState<GradesI[]>([]);
   const [loading, isLoading] = useState(true);
+
+  const getAxios = async () => {
+    await axiosGet(setGrades);
+  };
   useEffect(() => {
     const fetchLoading = async () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
       try {
-        await axiosGet(setGrades);
+        await getAxios();
       } finally {
         isLoading(false); // Após o carregamento, definir o estado de loading como false
       }
@@ -34,7 +38,11 @@ export default function TakeGrades() {
         <div className="flex justify-between items-center w-full">
           <h2>{conversionSemester(semester)}</h2>
 
-          <CreateGrade semester={semester} />
+          <CreateGrade
+            semester={semester}
+            setGrades={setGrades}
+            axiosGet={getAxios}
+          />
         </div>
 
         <div className="flex  flex-wrap gap-4 lg:gap-10  ">
@@ -87,7 +95,7 @@ export default function TakeGrades() {
     try {
       const res = await instance.delete(`${id}`);
       console.log(res);
-      axiosGet();
+      axiosGet(setGrades);
     } catch (err) {
       console.log(err);
     }

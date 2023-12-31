@@ -1,14 +1,16 @@
 import { InputHTMLAttributes, useState } from "react";
 import arraySubjects from "../strings/Subjects";
 import instance from "../axios/instance";
+import { ModalI } from "../interface/ModalI";
 
-export default function Subjects(semester: ModalI) {
+export default function Subjects({ semester, axiosGet, setOpen }: ModalI) {
   const [data, setData] = useState<GradesI>({
-    semester: semester.semester,
+    semester: semester,
     grade: null,
     subject: "",
   });
   const [warnInfo, setWarnInfo] = useState("");
+  const [warnTry, setWarnTry] = useState("");
   const [warnAxios, setWarnAxios] = useState("");
   const handleSubject = (subject: string) => {
     console.log(subject);
@@ -38,15 +40,19 @@ export default function Subjects(semester: ModalI) {
       );
     }
     try {
+      setWarnTry("Fazendo nossa magica..");
       const res = await instance.post("/", {
         semester: data.semester,
         subject: data.subject,
         grade: data.grade,
       });
       console.log(res);
-      window.location.reload();
+      axiosGet();
+      setOpen(false);
     } catch (error: any) {
+      setWarnTry("");
       setWarnAxios(error.response.data.error);
+
       console.log(error);
     }
   };
@@ -98,6 +104,7 @@ export default function Subjects(semester: ModalI) {
       </div>
       {warnInfo && <p className="text-gray-200 mt-4">{warnInfo}</p>}
       {warnAxios && <p className="text-red-400">{warnAxios}</p>}
+      {warnTry && <p className="text-green-400">{warnTry}</p>}
       <button
         onClick={axiosCreate}
         className="mt-4 absolute end-0 yellow-bg p-2 w-40 text-black font-bold rounded-2xl hover:opacity-70 transition-all"

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Modal from "./Modal";
+import { ModalI } from "../interface/ModalI";
 
-export default function CreateGrade({ semester }: ModalI) {
+export default function CreateGrade({ semester, setGrades, axiosGet }: ModalI) {
   const [open, setOpen] = useState(false);
   return (
     <div>
@@ -14,7 +15,7 @@ export default function CreateGrade({ semester }: ModalI) {
         <span className="text-xs">Adicionar uma nota</span>
       </button>
       {open ? (
-        <Modal setOpen={() => setOpen(!open)} semester={semester} />
+        <Modal setOpen={setOpen} semester={semester} axiosGet={axiosGet} />
       ) : null}
     </div>
   );
