@@ -15,15 +15,14 @@ import arraySemester from "../strings/ArraySemester";
 import Loading from "../Loading";
 export default function TakeGrades() {
   const [grades, setGrades] = useState<GradesI[]>([]);
-  const [loading, isLoading] = useState(false);
+  const [loading, isLoading] = useState(true);
   useEffect(() => {
     const fetchLoading = async () => {
       await new Promise((resolve) => setTimeout(resolve, 500));
       try {
-        isLoading(true);
         await axiosGet(setGrades);
       } finally {
-        isLoading(false);
+        isLoading(false); // Após o carregamento, definir o estado de loading como false
       }
     };
     fetchLoading();
@@ -39,6 +38,11 @@ export default function TakeGrades() {
         </div>
 
         <div className="flex  flex-wrap gap-4 lg:gap-10  ">
+          {filteredGrades.length == 0 && (
+            <p className="text-xs mt-10 text-zinc-400">
+              Notas ainda não registradas nesse bimestre.
+            </p>
+          )}
           {filteredGrades.map((note) => (
             <div
               key={note._id}
@@ -90,7 +94,7 @@ export default function TakeGrades() {
   };
   return (
     <>
-      {grades.length == 0 ? (
+      {loading ? (
         <Loading />
       ) : (
         <div className="flex flex-col gap-40">
