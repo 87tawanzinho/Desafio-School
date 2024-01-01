@@ -36,11 +36,19 @@ export default function Navbar() {
         <GraphicsSVG />
       </div>
       <div className="absolute end-4 flex gap-4">
-        <a href="https://github.com/87tawanzinho" target="_blank">
+        <a
+          href="https://github.com/87tawanzinho"
+          target="_blank"
+          className="hover:text-violet-700"
+        >
           Github
         </a>
 
-        <a href="https://wa.link/1hcale" target="_blank">
+        <a
+          href="https://wa.link/1hcale"
+          target="_blank"
+          className="hover:text-violet-700"
+        >
           Whatsapp
         </a>
       </div>
