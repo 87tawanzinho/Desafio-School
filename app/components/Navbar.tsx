@@ -25,7 +25,7 @@ export default function Navbar() {
     <header
       className={` ${
         changeColor ? "text-black bg-gray-100" : "text-white bg-black"
-      } w-full fixed p-4 z-50 items-center  flex text-sm  font-bold transition-all`}
+      } w-full fixed p-6 z-50 items-center  flex text-sm  font-bold transition-all`}
     >
       <div
         className={`flex gap-2 items-center ${
