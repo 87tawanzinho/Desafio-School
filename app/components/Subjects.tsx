@@ -13,7 +13,6 @@ export default function Subjects({ semester, axiosGet, setOpen }: ModalI) {
   const [warnTry, setWarnTry] = useState("");
   const [warnAxios, setWarnAxios] = useState("");
   const handleSubject = (subject: string) => {
-    console.log(subject);
     setWarnInfo(`Você escolheu: ${subject}`);
     setData((prev) => ({
       ...prev,

@@ -93,7 +93,7 @@ export default function TakeGrades() {
 
   const deleteGrade = async (id: string | undefined) => {
     try {
-      const res = await instance.delete(`${id}`);
+      await instance.delete(`${id}`);
       axiosGet(setGrades);
     } catch (err) {
       console.log(err);
