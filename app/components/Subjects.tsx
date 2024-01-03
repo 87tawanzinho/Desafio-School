@@ -25,7 +25,6 @@ export default function Subjects({ semester, axiosGet, setOpen }: ModalI) {
     const { name, value } = e.target;
 
     setData((prev) => ({ ...prev, [name]: value }));
-    console.log(name, value);
   };
 
   const axiosCreate = async () => {
@@ -46,17 +45,13 @@ export default function Subjects({ semester, axiosGet, setOpen }: ModalI) {
         subject: data.subject,
         grade: data.grade,
       });
-      console.log(res);
       axiosGet();
       setOpen(false);
     } catch (error: any) {
       setWarnTry("");
       setWarnAxios(error.response.data.error);
-
-      console.log(error);
     }
   };
-  console.log(data);
   return (
     <div className="mt-8 relative ">
       <p>Disciplina</p>
