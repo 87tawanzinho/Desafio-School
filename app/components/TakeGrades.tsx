@@ -54,7 +54,7 @@ export default function TakeGrades() {
           {filteredGrades.map((note) => (
             <div
               key={note._id}
-              className={`mt-10 flex gap-4 w-30 sm:w-36 lg:w-40 h-40 ${note.subject} rounded-2xl relative flex-wrap animatingCard `}
+              className={`mt-10 flex gap-4 w-32 sm:w-36 lg:w-40 h-40 ${note.subject} rounded-2xl relative flex-wrap animatingCard `}
             >
               <div
                 className="absolute end-0  top-1 tooltip-delete hover:opacity-75 transition-all bg-red-700 rounded-3xl p-2 "
